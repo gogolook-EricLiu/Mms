@@ -3,6 +3,10 @@
 	<name>Mms</name>
 	<comment></comment>
 	<projects>
+		<project>android-common</project>
+		<project>android-common-chips</project>
+		<project>jsr305</project>
+		<project>libphonenumber</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
