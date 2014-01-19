@@ -623,8 +623,7 @@ public class RecipientEditTextView extends MultiAutoCompleteTextView implements
                 // was selected.
                 if (photoBytes == null && contact.getPhotoThumbnailUri() != null) {
                     // TODO: cache this in the recipient entry?
-                    ((BaseRecipientAdapter) getAdapter()).fetchPhoto(contact, contact
-                            .getPhotoThumbnailUri());
+                    getAdapter().fetchPhoto(contact, contact.getPhotoThumbnailUri());
                     photoBytes = contact.getPhotoBytes();
                 }
 
@@ -1512,7 +1511,7 @@ public class RecipientEditTextView extends MultiAutoCompleteTextView implements
 
     private ListAdapter createAlternatesAdapter(DrawableRecipientChip chip) {
         return new RecipientAlternatesAdapter(getContext(), chip.getContactId(), chip.getDataId(),
-                ((BaseRecipientAdapter)getAdapter()).getQueryType(), this);
+                getAdapter().getQueryType(), this);
     }
 
     private ListAdapter createSingleAddressAdapter(DrawableRecipientChip currentChip) {
@@ -1676,8 +1675,7 @@ public class RecipientEditTextView extends MultiAutoCompleteTextView implements
     }
 
     private void submitItemAtPosition(int position) {
-        RecipientEntry entry = createValidatedEntry(
-                (RecipientEntry)getAdapter().getItem(position));
+        RecipientEntry entry = createValidatedEntry(getAdapter().getItem(position));
         if (entry == null) {
             return;
         }
@@ -2654,7 +2652,7 @@ public class RecipientEditTextView extends MultiAutoCompleteTextView implements
             }
             final BaseRecipientAdapter adapter = (BaseRecipientAdapter) getAdapter();
             RecipientAlternatesAdapter.getMatchingRecipients(getContext(), adapter, addresses,
-                    ((BaseRecipientAdapter) getAdapter()).getAccount(),
+                    adapter.getAccount(),
                     new RecipientMatchCallback() {
 
                         @Override
@@ -2884,7 +2882,11 @@ public class RecipientEditTextView extends MultiAutoCompleteTextView implements
 
     protected boolean isPhoneQuery() {
         return getAdapter() != null
-                && ((BaseRecipientAdapter) getAdapter()).getQueryType()
-                    == BaseRecipientAdapter.QUERY_TYPE_PHONE;
+                && getAdapter().getQueryType() == BaseRecipientAdapter.QUERY_TYPE_PHONE;
+    }
+
+    @Override
+    public BaseRecipientAdapter getAdapter() {
+        return (BaseRecipientAdapter) super.getAdapter();
     }
 }
