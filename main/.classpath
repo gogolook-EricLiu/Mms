@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="lib" path="exlib/framework-base.jar"/>
-	<classpathentry kind="lib" path="exlib/framework.jar"/>
-	<classpathentry kind="lib" path="exlib/mms-common.jar"/>
-	<classpathentry kind="lib" path="exlib/telephony-common.jar"/>
+	<classpathentry kind="lib" path="jarlib/framework-base.jar"/>
+	<classpathentry kind="lib" path="jarlib/framework.jar"/>
+	<classpathentry kind="lib" path="jarlib/mms-common.jar"/>
+	<classpathentry kind="lib" path="jarlib/telephony-common.jar"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
